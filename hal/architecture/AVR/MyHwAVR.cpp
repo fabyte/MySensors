@@ -297,6 +297,7 @@ uint16_t hwCPUVoltage(void)
 	return (1125300UL) / ADC;
 }
 
+#ifndef __AVR_ATtiny85__
 uint16_t hwCPUFrequency(void)
 {
 	cli();
@@ -331,6 +332,7 @@ uint16_t hwCPUFrequency(void)
 	// return frequency in 1/10MHz (accuracy +- 10%)
 	return TCNT1 * 2048UL / 100000UL;
 }
+#endif
 
 int8_t hwCPUTemperature(void)
 {
